@@ -3,11 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 public class Player : MonoBehaviour, IKitchenObjectParent {
 
     public static Player Instance { get; private set; }
 
+
+    public event EventHandler OnPickedSomething;
     public event EventHandler<OnSelectedCounterChangedArgs> OnSelectedCounterChanged;
     public class OnSelectedCounterChangedArgs : EventArgs {
         public BaseCounter selectedCounter;
@@ -37,12 +40,18 @@ public class Player : MonoBehaviour, IKitchenObjectParent {
     }
 
     private void GameInput_OnInteractAlternateAction(object sender, EventArgs e) {
+        //If IsGamePlaying not true,cannot do any interactions
+        if (!KitchenGameManager.Instance.IsGamePlaying()) return;
+
         if (selectedCounter != null) {
             selectedCounter.InteractAlternate(this);
         }
     }
 
     private void GameInput_OnInteractAction(object sender, System.EventArgs e) {
+        //If IsGamePlaying not true,cannot do any interactions
+        if (!KitchenGameManager.Instance.IsGamePlaying()) return;
+
         if (selectedCounter != null) {
             selectedCounter.Interact(this);
         }
@@ -62,7 +71,9 @@ public class Player : MonoBehaviour, IKitchenObjectParent {
     //Bad code example, change later as it is used by the event OnInteractAction instead
     private void HandleInteractions() {
         Vector2 inputVector = gameInput.GetMovementVectorNormalized();
-        Vector3 moveDir = new Vector3(inputVector.x, 0f, inputVector.y);
+
+        //Was changed from Vector3 moveDir = new Vector3(inputVector.x, 0f, inputVector.y); to current
+        Vector3 moveDir = new(inputVector.x, 0f, inputVector.y);
 
         //Check last interact distance
         if (moveDir != Vector3.zero) {
@@ -94,7 +105,8 @@ public class Player : MonoBehaviour, IKitchenObjectParent {
     private void HandleMovement() {
         Vector2 inputVector = gameInput.GetMovementVectorNormalized();
 
-        Vector3 moveDir = new Vector3(inputVector.x, 0f, inputVector.y);
+        //Was changed from Vector3 moveDir = new Vector3(inputVector.x, 0f, inputVector.y); to current
+        Vector3 moveDir = new(inputVector.x, 0f, inputVector.y);
 
         float moveDistance = moveSpeed * Time.deltaTime;
         float playerRaidus = .7f;
@@ -153,6 +165,11 @@ public class Player : MonoBehaviour, IKitchenObjectParent {
 
     public void SetKitchenObject(KitchenObject kitchenObject) {
         this.kitchenObject = kitchenObject;
+
+        if (kitchenObject != null) {
+            OnPickedSomething?.Invoke(this, EventArgs.Empty);
+
+        }
     }
 
     public KitchenObject GetKitchenObject() {
