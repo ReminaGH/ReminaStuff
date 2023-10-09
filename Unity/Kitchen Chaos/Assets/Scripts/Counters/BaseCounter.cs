@@ -9,6 +9,10 @@ public class BaseCounter : MonoBehaviour, IKitchenObjectParent {
     //Event for playing sounds on dropped item
     public static event EventHandler OnAnyObjectPlacedHere;
 
+    public static void ResetStaticData() {
+        OnAnyObjectPlacedHere = null;
+    }
+
     [SerializeField] private Transform counterTopPoint;
 
 
