@@ -180,7 +180,7 @@ public partial class @PlayerInputactions: IInputActionCollection2, IDisposable
                     ""id"": ""845acc94-6e0f-4dd4-95df-c69e55f41363"",
                     ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""StickDeadzone(min=0.5)"",
                     ""groups"": """",
                     ""action"": ""Move"",
                     ""isComposite"": false,
@@ -199,8 +199,8 @@ public partial class @PlayerInputactions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""fe5bbfce-15a7-4dc0-8114-231610c416fd"",
-                    ""path"": ""<Keyboard>/numpad0"",
+                    ""id"": ""7700e2f8-9f19-44fe-b52a-b201acf8a53c"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -221,8 +221,8 @@ public partial class @PlayerInputactions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""b736d629-988b-4c45-9f5f-0393a496313d"",
-                    ""path"": ""<Keyboard>/numpad1"",
+                    ""id"": ""62939410-aa6e-4de0-b56e-7e63a09bb2e3"",
+                    ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -238,6 +238,39 @@ public partial class @PlayerInputactions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d98083d9-156e-4cab-ba20-4a33d3bfb1de"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b736d629-988b-4c45-9f5f-0393a496313d"",
+                    ""path"": ""<Keyboard>/numpad1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""InteractAlternate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fe5bbfce-15a7-4dc0-8114-231610c416fd"",
+                    ""path"": ""<Keyboard>/numpad0"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }

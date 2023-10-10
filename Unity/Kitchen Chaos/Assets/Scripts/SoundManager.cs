@@ -70,6 +70,14 @@ public class SoundManager : MonoBehaviour {
         PlaySound(audoClipRefSO.footsteps, position, volume);
     }
 
+    public void PlayCountdownSound() {
+        PlaySound(audoClipRefSO.warning, Vector3.zero);
+    }
+
+    public void PlayWarningSound(Vector3 position) {
+        PlaySound(audoClipRefSO.warning, position);
+    }
+
     public void ChangeVolume() {
         volume += .1f;
         if (volume > 1f) { 

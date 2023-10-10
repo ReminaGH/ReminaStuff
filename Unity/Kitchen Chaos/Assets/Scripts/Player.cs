@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
+
 
 public class Player : MonoBehaviour, IKitchenObjectParent {
 
@@ -119,7 +119,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent {
 
             //Attempt move x only
             Vector3 moveDirX = new Vector3(moveDir.x, 0, 0).normalized;
-            canMove = moveDir.x != 0 && !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRaidus, moveDirX, moveDistance);
+            canMove = (moveDir.x < -.5f || moveDir.x > +.5f) && !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRaidus, moveDirX, moveDistance);
 
             if (canMove) {
                 //Can only move X
@@ -129,7 +129,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent {
 
             //Attempt to move on the z
             Vector3 moveDirZ = new Vector3(0, 0, moveDir.z).normalized;
-               canMove = moveDir.z != 0 && !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRaidus, moveDirZ, moveDistance);
+               canMove = (moveDir.z < -.5f || moveDir.z > +.5f) && !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRaidus, moveDirZ, moveDistance);
                 if (canMove) {
                     //Can only move z
                     moveDir = moveDirZ;

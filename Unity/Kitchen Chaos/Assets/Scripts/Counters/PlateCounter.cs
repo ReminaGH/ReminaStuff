@@ -21,7 +21,7 @@ public class PlatesCounter : BaseCounter {
         if (spawnPlateTimer > spawnPlateTimerMax) {
             spawnPlateTimer = 0f;
 
-            if (spawnPlateCount < spawnPlateCountMax) {
+            if (KitchenGameManager.Instance.IsGamePlaying() && spawnPlateCount < spawnPlateCountMax) {
                 spawnPlateCount++;
 
                 OnPlateSpawned?.Invoke(this, EventArgs.Empty);
