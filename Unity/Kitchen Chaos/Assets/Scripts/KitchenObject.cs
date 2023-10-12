@@ -1,8 +1,10 @@
+using Mono.CSharp;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
-public class KitchenObject : MonoBehaviour {
+public class KitchenObject : NetworkBehaviour {
 
     [SerializeField] private KitchenObjSO kitchenObjSO;
 
@@ -24,8 +26,9 @@ public class KitchenObject : MonoBehaviour {
             Debug.LogError("kitchenObjectParent already has kitchenObject!");
         }
         kitchenObjectParent.SetKitchenObject(this);
-        transform.parent = kitchenObjectParent.GetKitchenObjectFollowTransform();
-        transform.localPosition = Vector3.zero;
+
+        //transform.parent = kitchenObjectParent.GetKitchenObjectFollowTransform();
+        //transform.localPosition = Vector3.zero;
     
     }
 
@@ -52,14 +55,8 @@ public class KitchenObject : MonoBehaviour {
     
     }
 
-    public static KitchenObject SpawnKitchenObject(KitchenObjSO kitchenObjSO, IKitchenObjectParent kitchenObjectParent) {
-        Transform kitchenObjectTransform = Instantiate(kitchenObjSO.prefab);
-
-        KitchenObject kitchenObject = kitchenObjectTransform.GetComponent<KitchenObject>();
-        
-        kitchenObject.SetKitchenObjectParent(kitchenObjectParent);
-
-        return kitchenObject;
+    public static void SpawnKitchenObject(KitchenObjSO kitchenObjSO, IKitchenObjectParent kitchenObjectParent) {
+        KitchenGameMultiplayer.Instance.SpawnKitchenObject(kitchenObjSO, kitchenObjectParent);
     }
 
 }
