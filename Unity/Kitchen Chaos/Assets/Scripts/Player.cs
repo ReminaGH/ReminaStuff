@@ -26,7 +26,9 @@ public class Player : NetworkBehaviour, IKitchenObjectParent {
     //Gives access to movespeed directly via Unity
     [SerializeField] private float moveSpeed = 7f;
     [SerializeField] private LayerMask countersLayerMask;
+    [SerializeField] private LayerMask collisionsLayerMask;
     [SerializeField] private Transform KitchenObjectHoldPoint;
+    [SerializeField] private List<Vector3> spawnPositionList;
 
     private bool isWalking;
     private Vector3 lastInteractDir;
@@ -43,6 +45,8 @@ public class Player : NetworkBehaviour, IKitchenObjectParent {
         if (IsOwner) { 
         LocalInstance = this;
         }
+
+        transform.position = spawnPositionList[(int)OwnerClientId];
 
         OnAnyPlayerSpawned?.Invoke(this, EventArgs.Empty);
     }
@@ -124,8 +128,8 @@ public class Player : NetworkBehaviour, IKitchenObjectParent {
 
         float moveDistance = moveSpeed * Time.deltaTime;
         float playerRaidus = .7f;
-        float playerHeight = 2f;
-        bool canMove = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRaidus, moveDir, moveDistance);
+        //float playerHeight = 2f;
+        bool canMove = !Physics.BoxCast(transform.position, Vector3.one * playerRaidus, moveDir, Quaternion.identity, moveDistance, collisionsLayerMask);
 
         //Physicis check
         if (!canMove) {
@@ -133,7 +137,7 @@ public class Player : NetworkBehaviour, IKitchenObjectParent {
 
             //Attempt move x only
             Vector3 moveDirX = new Vector3(moveDir.x, 0, 0).normalized;
-            canMove = (moveDir.x < -.5f || moveDir.x > +.5f) && !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRaidus, moveDirX, moveDistance);
+            canMove = (moveDir.x < -.5f || moveDir.x > +.5f) && !Physics.BoxCast(transform.position, Vector3.one * playerRaidus, moveDirX, Quaternion.identity, moveDistance, collisionsLayerMask);
 
             if (canMove) {
                 //Can only move X
@@ -143,7 +147,7 @@ public class Player : NetworkBehaviour, IKitchenObjectParent {
 
             //Attempt to move on the z
             Vector3 moveDirZ = new Vector3(0, 0, moveDir.z).normalized;
-               canMove = (moveDir.z < -.5f || moveDir.z > +.5f) && !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRaidus, moveDirZ, moveDistance);
+               canMove = (moveDir.z < -.5f || moveDir.z > +.5f) && !Physics.BoxCast(transform.position, Vector3.one * playerRaidus, moveDirZ, Quaternion.identity, moveDistance, collisionsLayerMask);
                 if (canMove) {
                     //Can only move z
                     moveDir = moveDirZ;

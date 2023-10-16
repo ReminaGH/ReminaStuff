@@ -53,6 +53,14 @@ public class StoveCounter : BaseCounter, IHasProgress {
         OnStateChanged?.Invoke(this, new OnStateChangedEventArgs {
             state = state.Value
         });
+
+        if (state.Value == State.Burned || state.Value == State.Idle) {
+
+            OnProgressChanged?.Invoke(this, new OnProgressChangedEventArgs {
+                ProgressNormalized = 0f
+            });
+
+        }
     }
     private void Update() {
         if (!IsServer) {
@@ -77,7 +85,10 @@ public class StoveCounter : BaseCounter, IHasProgress {
     
                         state.Value = State.Fried;
                         burningTimer.Value = 0f;
-                        burningRecipeSO = GetBurningRecipeSOWithInput(GetKitchenObject().GetKitchenObjSO());
+                        SetBurningRecipeSOClientRpc(
+                            KitchenGameMultiplayer.Instance.GetKitchenObjectSOIndex(GetKitchenObject().GetKitchenObjSO())
+                            );
+                        
                     }
                     break;
 
@@ -133,16 +144,10 @@ public class StoveCounter : BaseCounter, IHasProgress {
                 if (player.GetKitchenObject().TryGetPlate(out PlateKitchenObject plateKitchenObject)) {
                     //Player is holding plate
                     if (plateKitchenObject.TryAddIngredient(GetKitchenObject().GetKitchenObjSO())) {
-                        GetKitchenObject().DestroySelf();
+                        KitchenObject.DestroyKitchenObject(GetKitchenObject());
 
-                        //state = State.Idle;
-                        OnStateChanged?.Invoke(this, new OnStateChangedEventArgs {
-                            //state = state
-                        });
+                        SetStateIdleServerRpc();
 
-                        OnProgressChanged?.Invoke(this, new OnProgressChangedEventArgs {
-                            ProgressNormalized = 0f
-                        });
                     }
                 }
             }
@@ -150,36 +155,32 @@ public class StoveCounter : BaseCounter, IHasProgress {
                 //Player is not carrying something
                 GetKitchenObject().SetKitchenObjectParent(player);
 
-                //state = State.Idle;
-                OnStateChanged?.Invoke(this, new OnStateChangedEventArgs {
-                    //state = state
-                });
-
-                OnProgressChanged?.Invoke(this, new OnProgressChangedEventArgs {
-                    ProgressNormalized = 0f
-                });
+                SetStateIdleServerRpc();
             }
         }
+    }
+    [ServerRpc(RequireOwnership = false)]
+    private void SetStateIdleServerRpc() {
+        state.Value = State.Idle;
     }
 
     [ServerRpc(RequireOwnership = false)]
     private void InteractLogicPlaceObjectOnCounterServerRpc(int kitchenObjectSOIndex) {
         fryingTimer.Value = 0f;
-
-        InteractLogicPlaceObjectOnCounterClientRpc(kitchenObjectSOIndex);
+        state.Value = State.Frying;
+        SetFryingRecipeSOClientRpc(kitchenObjectSOIndex);
     }
 
     [ClientRpc]
-    private void InteractLogicPlaceObjectOnCounterClientRpc(int kitchenObjectSOIndex) {
+    private void SetFryingRecipeSOClientRpc(int kitchenObjectSOIndex) {
         KitchenObjSO kitchenObjSO = KitchenGameMultiplayer.Instance.GetKitchenObjectSOFromIndex(kitchenObjectSOIndex);
-
         fryingRecipeSO = GetFryingRecipeSOWithInput(kitchenObjSO);
+    }
 
-        //state = State.Frying;
-        
-        OnStateChanged?.Invoke(this, new OnStateChangedEventArgs {
-            //state = state
-        });
+    [ClientRpc]
+    private void SetBurningRecipeSOClientRpc(int kitchenObjectSOIndex) {
+        KitchenObjSO kitchenObjSO = KitchenGameMultiplayer.Instance.GetKitchenObjectSOFromIndex(kitchenObjectSOIndex);
+        burningRecipeSO = GetBurningRecipeSOWithInput(kitchenObjSO);
     }
 
     private bool HasRecipeWithInput(KitchenObjSO inputKitchenObjectSO) {
@@ -214,7 +215,7 @@ public class StoveCounter : BaseCounter, IHasProgress {
     }
 
 
-    /*public bool isFried() { 
-        return state == State.Fried;
-    }*/
+    public bool isFried() { 
+        return state.Value == State.Fried;
+    }
 }
