@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
 public class ContainerCounter : BaseCounter {
@@ -16,10 +17,17 @@ public class ContainerCounter : BaseCounter {
             //Player is not carrying an object
             KitchenObject.SpawnKitchenObject(kitchenObjSO, player);
 
-            //Invokes animation of the containerCounter with an event
-            OnPlayerGrabedObject?.Invoke(this, EventArgs.Empty);
+            InteractLogiclServerRpc();
         }
-
     }
-    
+
+    [ServerRpc(RequireOwnership = false)]
+    private void InteractLogiclServerRpc() {
+        InteractLogiclClientRpc();
+    }
+
+    [ClientRpc]
+    private void InteractLogiclClientRpc() {
+        OnPlayerGrabedObject?.Invoke(this, EventArgs.Empty);
+    }
 }

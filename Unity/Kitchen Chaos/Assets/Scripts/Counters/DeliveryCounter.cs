@@ -18,7 +18,8 @@ public class DeliveryCounter : BaseCounter {
                 //Only accepts plates
 
                 DeliveryManager.Instance.DeliverRecipie(plateKitchenObject);
-                player.GetKitchenObject().DestroySelf();
+
+                KitchenObject.DestroyKitchenObject(player.GetKitchenObject());
             }
         }
     }
