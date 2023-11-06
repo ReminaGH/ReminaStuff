@@ -49,7 +49,7 @@ public class KitchenGameLobby : MonoBehaviour
     private async void InitializeUnityAuthentication() {
         if (UnityServices.State != ServicesInitializationState.Initialized) {
             InitializationOptions initializationOptions = new InitializationOptions();
-            initializationOptions.SetProfile(UnityEngine.Random.Range(0, 10000).ToString());
+            //initializationOptions.SetProfile(UnityEngine.Random.Range(0, 10000).ToString());
 
             await UnityServices.InitializeAsync();
 
@@ -110,7 +110,7 @@ public class KitchenGameLobby : MonoBehaviour
         }
     }
 
-    private async Task<Allocation> AllocateRelay() {
+    public async Task<Allocation> AllocateRelay() {
         try {
             Allocation allocation = await RelayService.Instance.CreateAllocationAsync(KitchenGameMultiplayer.MAX_PLAYER_AMOUNT - 1);
 
