@@ -42,7 +42,7 @@ public class Player : NetworkBehaviour, IKitchenObjectParent {
         GameInput.Instance.OnInteractAlternateAction += GameInput_OnInteractAlternateAction;
 
         PlayerData playerData = KitchenGameMultiplayer.Instance.GetPlayerDataFromClientId(OwnerClientId);
-        playerVisual.SetPlayerColor(KitchenGameMultiplayer.Instance.GetPlayerColor(playerData.colorId)); 
+        //playerVisual.SetPlayerColor(KitchenGameMultiplayer.Instance.GetPlayerColor(playerData.colorId)); 
     }
 
     public override void OnNetworkSpawn() {

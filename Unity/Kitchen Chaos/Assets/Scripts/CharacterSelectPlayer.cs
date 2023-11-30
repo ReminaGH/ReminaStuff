@@ -55,7 +55,7 @@ public class CharacterSelectPlayer : MonoBehaviour
 
             playerNameText.text = playerData.playerName.ToString();
 
-            playerVisual.SetPlayerColor(KitchenGameMultiplayer.Instance.GetPlayerColor(playerData.colorId));
+            //playerVisual.SetPlayerColor(KitchenGameMultiplayer.Instance.GetPlayerColor(playerData.colorId));
         } else {
             Hide();
         }
