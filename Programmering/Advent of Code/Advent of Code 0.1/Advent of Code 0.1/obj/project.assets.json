@@ -8,19 +8,19 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\datahaxx\\.nuget\\packages\\": {}
+    "C:\\Users\\major\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\datahaxx\\Documents\\CPGit\\CpStuff\\Programmering\\Advent of Code\\Advent of Code 0.1\\Advent of Code 0.1\\Advent of Code 0.1.csproj",
+      "projectUniqueName": "C:\\Users\\major\\OneDrive\\Dokument\\CPGIT\\CpStuff\\Programmering\\Advent of Code\\Advent of Code 0.1\\Advent of Code 0.1\\Advent of Code 0.1.csproj",
       "projectName": "Advent of Code 0.1",
-      "projectPath": "C:\\Users\\datahaxx\\Documents\\CPGit\\CpStuff\\Programmering\\Advent of Code\\Advent of Code 0.1\\Advent of Code 0.1\\Advent of Code 0.1.csproj",
-      "packagesPath": "C:\\Users\\datahaxx\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\datahaxx\\Documents\\CPGit\\CpStuff\\Programmering\\Advent of Code\\Advent of Code 0.1\\Advent of Code 0.1\\obj\\",
+      "projectPath": "C:\\Users\\major\\OneDrive\\Dokument\\CPGIT\\CpStuff\\Programmering\\Advent of Code\\Advent of Code 0.1\\Advent of Code 0.1\\Advent of Code 0.1.csproj",
+      "packagesPath": "C:\\Users\\major\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\major\\OneDrive\\Dokument\\CPGIT\\CpStuff\\Programmering\\Advent of Code\\Advent of Code 0.1\\Advent of Code 0.1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\datahaxx\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\major\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -61,7 +61,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }

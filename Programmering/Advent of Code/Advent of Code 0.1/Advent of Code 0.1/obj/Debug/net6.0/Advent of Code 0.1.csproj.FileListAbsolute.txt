@@ -12,3 +12,17 @@ C:\Users\datahaxx\Documents\CPGit\CpStuff\Programmering\Advent of Code\Advent of
 C:\Users\datahaxx\Documents\CPGit\CpStuff\Programmering\Advent of Code\Advent of Code 0.1\Advent of Code 0.1\obj\Debug\net6.0\Advent of Code 0.1.pdb
 C:\Users\datahaxx\Documents\CPGit\CpStuff\Programmering\Advent of Code\Advent of Code 0.1\Advent of Code 0.1\obj\Debug\net6.0\Advent of Code 0.1.genruntimeconfig.cache
 C:\Users\datahaxx\Documents\CPGit\CpStuff\Programmering\Advent of Code\Advent of Code 0.1\Advent of Code 0.1\obj\Debug\net6.0\ref\Advent of Code 0.1.dll
+C:\Users\major\OneDrive\Dokument\CPGIT\CpStuff\Programmering\Advent of Code\Advent of Code 0.1\Advent of Code 0.1\bin\Debug\net6.0\Advent of Code 0.1.exe
+C:\Users\major\OneDrive\Dokument\CPGIT\CpStuff\Programmering\Advent of Code\Advent of Code 0.1\Advent of Code 0.1\bin\Debug\net6.0\Advent of Code 0.1.deps.json
+C:\Users\major\OneDrive\Dokument\CPGIT\CpStuff\Programmering\Advent of Code\Advent of Code 0.1\Advent of Code 0.1\bin\Debug\net6.0\Advent of Code 0.1.runtimeconfig.json
+C:\Users\major\OneDrive\Dokument\CPGIT\CpStuff\Programmering\Advent of Code\Advent of Code 0.1\Advent of Code 0.1\bin\Debug\net6.0\Advent of Code 0.1.dll
+C:\Users\major\OneDrive\Dokument\CPGIT\CpStuff\Programmering\Advent of Code\Advent of Code 0.1\Advent of Code 0.1\bin\Debug\net6.0\Advent of Code 0.1.pdb
+C:\Users\major\OneDrive\Dokument\CPGIT\CpStuff\Programmering\Advent of Code\Advent of Code 0.1\Advent of Code 0.1\obj\Debug\net6.0\Advent of Code 0.1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\major\OneDrive\Dokument\CPGIT\CpStuff\Programmering\Advent of Code\Advent of Code 0.1\Advent of Code 0.1\obj\Debug\net6.0\Advent of Code 0.1.AssemblyInfoInputs.cache
+C:\Users\major\OneDrive\Dokument\CPGIT\CpStuff\Programmering\Advent of Code\Advent of Code 0.1\Advent of Code 0.1\obj\Debug\net6.0\Advent of Code 0.1.AssemblyInfo.cs
+C:\Users\major\OneDrive\Dokument\CPGIT\CpStuff\Programmering\Advent of Code\Advent of Code 0.1\Advent of Code 0.1\obj\Debug\net6.0\Advent of Code 0.1.csproj.CoreCompileInputs.cache
+C:\Users\major\OneDrive\Dokument\CPGIT\CpStuff\Programmering\Advent of Code\Advent of Code 0.1\Advent of Code 0.1\obj\Debug\net6.0\Advent of Code 0.1.dll
+C:\Users\major\OneDrive\Dokument\CPGIT\CpStuff\Programmering\Advent of Code\Advent of Code 0.1\Advent of Code 0.1\obj\Debug\net6.0\refint\Advent of Code 0.1.dll
+C:\Users\major\OneDrive\Dokument\CPGIT\CpStuff\Programmering\Advent of Code\Advent of Code 0.1\Advent of Code 0.1\obj\Debug\net6.0\Advent of Code 0.1.pdb
+C:\Users\major\OneDrive\Dokument\CPGIT\CpStuff\Programmering\Advent of Code\Advent of Code 0.1\Advent of Code 0.1\obj\Debug\net6.0\Advent of Code 0.1.genruntimeconfig.cache
+C:\Users\major\OneDrive\Dokument\CPGIT\CpStuff\Programmering\Advent of Code\Advent of Code 0.1\Advent of Code 0.1\obj\Debug\net6.0\ref\Advent of Code 0.1.dll
