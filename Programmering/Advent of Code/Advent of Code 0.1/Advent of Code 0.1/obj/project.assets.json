@@ -8,19 +8,19 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\major\\.nuget\\packages\\": {}
+    "C:\\Users\\Major\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\major\\OneDrive\\Dokument\\CPGIT\\CpStuff\\Programmering\\Advent of Code\\Advent of Code 0.1\\Advent of Code 0.1\\Advent of Code 0.1.csproj",
+      "projectUniqueName": "D:\\Git\\CpStuff\\Programmering\\Advent of Code\\Advent of Code 0.1\\Advent of Code 0.1\\Advent of Code 0.1.csproj",
       "projectName": "Advent of Code 0.1",
-      "projectPath": "C:\\Users\\major\\OneDrive\\Dokument\\CPGIT\\CpStuff\\Programmering\\Advent of Code\\Advent of Code 0.1\\Advent of Code 0.1\\Advent of Code 0.1.csproj",
-      "packagesPath": "C:\\Users\\major\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\major\\OneDrive\\Dokument\\CPGIT\\CpStuff\\Programmering\\Advent of Code\\Advent of Code 0.1\\Advent of Code 0.1\\obj\\",
+      "projectPath": "D:\\Git\\CpStuff\\Programmering\\Advent of Code\\Advent of Code 0.1\\Advent of Code 0.1\\Advent of Code 0.1.csproj",
+      "packagesPath": "C:\\Users\\Major\\.nuget\\packages\\",
+      "outputPath": "D:\\Git\\CpStuff\\Programmering\\Advent of Code\\Advent of Code 0.1\\Advent of Code 0.1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\major\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Major\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
