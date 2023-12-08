@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\datahaxx\\Documents\\CPGit\\CpStuff\\Programmering\\Advent of Code\\Advent of Code 4\\Advent of Code 4\\Advent of Code 4\\Advent of Code 4.csproj",
-      "projectName": "Advent of Code 4",
-      "projectPath": "C:\\Users\\datahaxx\\Documents\\CPGit\\CpStuff\\Programmering\\Advent of Code\\Advent of Code 4\\Advent of Code 4\\Advent of Code 4\\Advent of Code 4.csproj",
+      "projectUniqueName": "C:\\Users\\datahaxx\\Documents\\CPGit\\CpStuff\\Programmering\\Advent of Code\\Advent of Code 8\\Advent of code 8\\Advent of code 8\\Advent of code 8.csproj",
+      "projectName": "Advent of code 8",
+      "projectPath": "C:\\Users\\datahaxx\\Documents\\CPGit\\CpStuff\\Programmering\\Advent of Code\\Advent of Code 8\\Advent of code 8\\Advent of code 8\\Advent of code 8.csproj",
       "packagesPath": "C:\\Users\\datahaxx\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\datahaxx\\Documents\\CPGit\\CpStuff\\Programmering\\Advent of Code\\Advent of Code 4\\Advent of Code 4\\Advent of Code 4\\obj\\",
+      "outputPath": "C:\\Users\\datahaxx\\Documents\\CPGit\\CpStuff\\Programmering\\Advent of Code\\Advent of Code 8\\Advent of code 8\\Advent of code 8\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\datahaxx\\AppData\\Roaming\\NuGet\\NuGet.Config",
