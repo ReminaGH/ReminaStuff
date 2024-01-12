@@ -8,11 +8,20 @@
             lines = File.ReadAllLines(filePath);
 
             char[,] grid = CreateGrid(lines);
-
+            
            
-            DisplayGrid(grid);
+            //DisplayGrid(grid);
 
-            FindAndPrintLocation(grid, 'S');
+            var location = FindLocation(grid, 'S');
+            
+            // Check if 'S' is found and print the location
+            if (location != null) {
+                Console.WriteLine($"Found 'S' at location: {location.Item1}, {location.Item2}");
+
+                // Now you can use the 'location' tuple for later use
+                // For example: int row = location.Item1; int column = location.Item2;
+            }
+
         }
     }
 
@@ -32,6 +41,22 @@
         return grid;
     }
 
+    static Tuple<int, int> FindLocation(char[,] grid, char target) {
+        // Iterate through the grid to find the target character
+        for (int i = 0; i < grid.GetLength(0); i++) {
+            for (int j = 0; j < grid.GetLength(1); j++) {
+                if (grid[i, j] == target) {
+                    // Return the location as a tuple
+                    return Tuple.Create(i, j);
+                }
+            }
+        }
+
+        // If the target is not found, return null
+        return null;
+    }
+
+
 
     static void DisplayGrid(char[,] grid) {
         // Display the grid
@@ -42,18 +67,7 @@
             Console.WriteLine();
         }
     }
-    static void FindAndPrintLocation(char[,] grid, char target) {
-        // Iterate through the grid to find the target character
-        for (int i = 0; i < grid.GetLength(0); i++) {
-            for (int j = 0; j < grid.GetLength(1); j++) {
-                if (grid[i, j] == target) {
-                    Console.WriteLine($"Found '{target}' at location: ({i}, {j})");
-                    return; // Stop searching after the first occurrence
-                }
-            }
-        }
-
-        // If the target is not found
-        Console.WriteLine($"'{target}' not found in the grid.");
-    }
 }
+
+
+

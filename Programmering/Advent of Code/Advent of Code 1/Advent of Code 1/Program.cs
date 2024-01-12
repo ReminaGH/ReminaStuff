@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 
 class Advent_Of_Code_1 {
     static void Main() {
-        const string INPUT_FILE = @"D:\Git\CpStuff\Programmering\Advent of Code\Advent of Code 1\AoC_Input.txt";
+        const string INPUT_FILE = @"C:\Users\major\OneDrive\Dokument\CPGIT\CpStuff\Programmering\Advent of Code\Advent of Code 1\AoC_Input.txt";
 
         var counter = 0;
 
