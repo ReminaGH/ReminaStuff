@@ -1,98 +1,55 @@
-﻿namespace Advent_of_Code_0._1 {
-    internal class Program {
-        static void Main(string[] args) {
-            const string INPUT_FILE = @"C:\Users\datahaxx\Documents\CPGit\CpStuff\Programmering\Advent of Code\Advent of Code 0.1\input.txt";
+﻿const string FILE = @"C:\Users\datahaxx\Documents\CPGit\CpStuff\Programmering\Advent of Code\Advent of Code 0.1\input.txt";
 
-            string[] logFile = File.ReadAllLines(INPUT_FILE);
+var input = File.ReadAllLines(FILE);
+var watch = System.Diagnostics.Stopwatch.StartNew();
+var instructions = input[0].Select(x => x == 'L' ? 0 : 1).ToArray();
+var nodes =
+    input.Skip(2)
+    .Select(x => x.Split(new[] { ' ', ',', '(', ')', '=' }, StringSplitOptions.RemoveEmptyEntries))
+    .ToDictionary(x => x[0], x => x[1..]);
 
-            List<List<int>> numberedElfs = ProcessNumberedElfs(logFile);
-
-            DisplayElfs(numberedElfs);
-            FindBiggestElf(numberedElfs);
-            FindTop3Elfs(numberedElfs);
-        }
-
-        static List<List<int>> ProcessNumberedElfs(string[] logFile) {
-
-            List<List<int>> numberedElfs = new List<List<int>>();
-            List<int> currentElf = new List<int>();
-
-            foreach (string line in logFile) {
-
-                if (string.IsNullOrEmpty(line)) {
-
-                    if (currentElf.Count > 0) {
-
-                        numberedElfs.Add(currentElf);
-                        currentElf = new List<int>();
-                    }
-                }
-
-                else {
-
-                    if (int.TryParse(line, out int number)) {
-
-                        currentElf.Add(number);
-                    }
-
-                    else {
-
-                        Console.WriteLine($"Unable to handle elf");
-                    }
-                }
+long result1 = 0;
+long result2 = 0; { // Part 1
+    for (var node = "AAA"; node != "ZZZ"; result1++)
+        node = nodes[node][instructions[result1 % instructions.Length]];
+} { // Part2 (Utilizing loop frequency harmony)
+    var findloopFrequency = (string node) =>  // Scan until an end node is seen twice, first index is phase, index difference is period
+    {
+        var endSeen = new Dictionary<string, long>();
+        for (long i = 0; true; i++) {
+            if (node[2] == 'Z') {
+                if (endSeen.TryGetValue(node, out var lastSeen))
+                    return (phase: lastSeen, period: i - lastSeen);
+                else
+                    endSeen[node] = i;
             }
-
-            if (currentElf.Count > 0) {
-
-                numberedElfs.Add(currentElf);
-            }
-
-            return numberedElfs;
+            node = nodes[node][instructions[i % instructions.Length]];
         }
+    };
 
-        static void DisplayElfs(List<List<int>> numberedElfs) {
+    var frequencies =
+        nodes.Keys
+        .Where(x => x[2] == 'A')
+        .Select(x => findloopFrequency(x))
+        .ToList();
 
-            int elfGroup = 1;
+    // Find harmony by moving harmony phase forward and increasing harmony period until it matches all frequencies
+    var harmonyPhase = frequencies[0].phase;
+    var harmonyPeriod = frequencies[0].period;
+    foreach (var freq in frequencies.Skip(1)) {
+        // Find new harmonyPhase by increasing phase in harmony period steps until harmony matches freq
+        for (; harmonyPhase < freq.phase || (harmonyPhase - freq.phase) % freq.period != 0; harmonyPhase += harmonyPeriod) ;
 
-            foreach (List<int> group in numberedElfs) {
-
-                Console.WriteLine($"Elf group {elfGroup++}");
-                foreach (int number in group) {
-
-                    Console.WriteLine(number);
-                }
-                Console.WriteLine();
-            }
-
-        }
-        static void FindBiggestElf(List<List<int>> numberedElfs) {
-
-            var sumElf = numberedElfs.Select(group => group.Sum()).ToList();
-
-            int indexOfLargestElf = sumElf.IndexOf(sumElf.Max());
-
-            Console.WriteLine($"The {indexOfLargestElf + 1} Elf has the largest sum of calories: {sumElf.Max()}");
-        }
-        static void FindTop3Elfs(List<List<int>> numberedElfs) {
-
-            var sumElf = numberedElfs.Select(group => group.Sum()).ToList();
-
-            var top3Elfs = sumElf
-                .Select((sum, index) => new { Index = index, Sum = sum })
-                .OrderByDescending(x => x.Sum)
-                .Take(3)
-                .Select(x => x.Index)
-                .ToList();
-
-            Console.WriteLine("Top 3 Elfs:");
-
-            foreach (int index in top3Elfs) {
-                Console.WriteLine($"Elf number: {index + 1}, Their total calories: {sumElf[index]}");
-            }
-
-            int sumOfTop3 = top3Elfs.Sum(index => sumElf[index]);
-
-            Console.WriteLine($"Sum of the 3 top elfs together: {sumOfTop3}");
-        }
+        // Find the new harmonyPeriod by looking for the next position the harmony frequency matches freq (brute force least common multiplier)
+        long sample = harmonyPhase + harmonyPeriod;
+        for (; (sample - freq.phase) % freq.period != 0; sample += harmonyPeriod) ;
+        harmonyPeriod = sample - harmonyPhase;
     }
- }
+    result2 = harmonyPhase;
+}
+
+watch.Stop();
+
+Console.WriteLine($"Result1 = {result1}");
+Console.WriteLine($"Result2 = {result2}");
+Console.WriteLine($"Runtime = {watch.ElapsedMilliseconds}ms");
