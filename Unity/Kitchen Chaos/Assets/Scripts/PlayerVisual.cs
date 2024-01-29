@@ -16,9 +16,9 @@ public class PlayerVisual : MonoBehaviour
 
 
     private void Awake() {
-        //material = new Material(headMeshRenderer.material);
-        //headMeshRenderer.material = material;
-        //bodyMeshRenderer.material = material;
+        material = new Material(headMeshRenderer.material);
+        headMeshRenderer.material = material;
+        bodyMeshRenderer.material = material;
     }
     
 
