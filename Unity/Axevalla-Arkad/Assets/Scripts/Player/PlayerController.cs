@@ -8,9 +8,35 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] private GameInput gameInput;
 
 
-   private bool isWalking;
+    private bool isWalking;
+    private Vector3 lastInteractionDir;
 
     private void Update() {
+        HandleMovement();
+        HandleInteractions();
+    }
+    
+
+    public bool IsWalking() { return isWalking; }
+
+    private void HandleInteractions() {
+        Vector2 inputVector = gameInput.GetMovementVectorNormalized();
+
+        Vector3 moveDir = new Vector3(inputVector.x, 0f, inputVector.y);
+
+        if (moveDir != Vector3.zero) {
+        lastInteractionDir = moveDir;
+        }
+
+        float interactionDistance = 2f;
+        if (Physics.Raycast(transform.position, lastInteractionDir, out RaycastHit raycastHit, interactionDistance)) {
+            if (raycastHit.transform.TryGetComponent(out BaseCabinet baseCabinet)) { 
+                //Has BaseCabinet
+                baseCabinet.Interact();
+            }
+        }
+    }
+    private void HandleMovement() {
         Vector2 inputVector = gameInput.GetMovementVectorNormalized();
 
         Vector3 moveDir = new Vector3(inputVector.x, 0f, inputVector.y);
@@ -49,18 +75,15 @@ public class PlayerController : MonoBehaviour {
             }
         }
 
-            if (canMove) {
-                transform.position += moveDir * moveDistance;
-            }
-
-            isWalking = moveDir != Vector3.zero;
-
-            float rotateSpeed = 10f;
-            transform.forward = Vector3.Slerp(transform.forward, moveDir, Time.deltaTime * rotateSpeed);
+        if (canMove) {
+            transform.position += moveDir * moveDistance;
         }
-    
 
-    public bool IsWalking() { return isWalking; }
+        isWalking = moveDir != Vector3.zero;
+
+        float rotateSpeed = 10f;
+        transform.forward = Vector3.Slerp(transform.forward, moveDir, Time.deltaTime * rotateSpeed);
+    }
 
 }
 
