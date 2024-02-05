@@ -1,8 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
+
+    public static PlayerController Instance { get; private set; }
+
+    public event EventHandler<OnSelectedCabinetChangedEventArgs> OnSelectedCabinetChanged;
+    public class OnSelectedCabinetChangedEventArgs : EventArgs {
+        public BaseCabinet selectedCabinet;
+    }
 
     [SerializeField] private float moveSpeed = 7f;
     [SerializeField] private GameInput gameInput;
@@ -10,16 +18,33 @@ public class PlayerController : MonoBehaviour {
 
     private bool isWalking;
     private Vector3 lastInteractionDir;
+    private BaseCabinet selectedCabinet;
+
+    private void Awake() {
+        if (Instance != null) {
+            Debug.LogError("There is more than 1 player instance");
+        }
+        Instance = this;
+    }
+
+    private void Start() {
+        gameInput.OnInteractAction += GameInput_OnInteractAction;
+    }
+
+    private void GameInput_OnInteractAction(object sender, System.EventArgs e) {
+        if (selectedCabinet != null) {
+            selectedCabinet.Interact();
+        }
+    }
 
     private void Update() {
         HandleMovement();
         HandleInteractions();
     }
     
-
     public bool IsWalking() { return isWalking; }
 
-    private void HandleInteractions() {
+    private void HandleInteractions() { 
         Vector2 inputVector = gameInput.GetMovementVectorNormalized();
 
         Vector3 moveDir = new Vector3(inputVector.x, 0f, inputVector.y);
@@ -30,12 +55,21 @@ public class PlayerController : MonoBehaviour {
 
         float interactionDistance = 2f;
         if (Physics.Raycast(transform.position, lastInteractionDir, out RaycastHit raycastHit, interactionDistance)) {
-            if (raycastHit.transform.TryGetComponent(out BaseCabinet baseCabinet)) { 
+            if (raycastHit.transform.TryGetComponent(out BaseCabinet baseCabinet)) {
                 //Has BaseCabinet
-                baseCabinet.Interact();
+                if (baseCabinet != selectedCabinet) {
+                    SetSelectedCabinet(baseCabinet);
+                }
+            }
+            else {
+                SetSelectedCabinet(null);
             }
         }
+        else {
+            SetSelectedCabinet(null);
+        }
     }
+
     private void HandleMovement() {
         Vector2 inputVector = gameInput.GetMovementVectorNormalized();
 
@@ -83,6 +117,14 @@ public class PlayerController : MonoBehaviour {
 
         float rotateSpeed = 10f;
         transform.forward = Vector3.Slerp(transform.forward, moveDir, Time.deltaTime * rotateSpeed);
+    }
+
+    private void SetSelectedCabinet(BaseCabinet selectedCabinet) {
+        this.selectedCabinet = selectedCabinet;
+
+        OnSelectedCabinetChanged?.Invoke(this, new OnSelectedCabinetChangedEventArgs {
+            selectedCabinet = selectedCabinet
+        });
     }
 
 }
