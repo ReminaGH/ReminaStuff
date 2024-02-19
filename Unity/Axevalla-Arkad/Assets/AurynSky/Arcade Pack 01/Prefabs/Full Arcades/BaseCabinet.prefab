@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7023444338234235438}
   - component: {fileID: 8743449817662929892}
   - component: {fileID: 8630138411033175800}
+  - component: {fileID: 5611555880351876972}
   m_Layer: 0
   m_Name: BaseCabinet
   m_TagString: Untagged
@@ -69,6 +70,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9af42c647987bb9409f42f845adc7f29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5611555880351876972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1821349162325582874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f636b9ae03c3b8e43a0700064a8629b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseCabinet: {fileID: 8630138411033175800}
 --- !u!1 &2054843813283953404
 GameObject:
   m_ObjectHideFlags: 0

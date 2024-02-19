@@ -5,7 +5,7 @@ using UnityEngine;
 public class BaseCabinet : MonoBehaviour
 {
 
-    private int scoreCounter = 0;
+    private int scoreCounter = 3;
 
     public void Interact() {
 
