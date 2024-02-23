@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using System.Diagnostics;
+using System;
 
 public class WriteToFile : MonoBehaviour
 {
@@ -13,11 +15,13 @@ public class WriteToFile : MonoBehaviour
 
         Directory.CreateDirectory(Application.streamingAssetsPath + "/Score_Log/");
 
+
     }
 
     private void OnApplicationQuit() {
 
         CreateTextFile();
+        
     }
 
     public void CreateTextFile() {
@@ -30,6 +34,6 @@ public class WriteToFile : MonoBehaviour
         
         }
 
-        File.WriteAllText(txtDocumentName, baseCabinet.GetCurrentScore().ToString());
+        File.WriteAllText(txtDocumentName, baseCabinet.GetCurrentScore());
     }
 }
