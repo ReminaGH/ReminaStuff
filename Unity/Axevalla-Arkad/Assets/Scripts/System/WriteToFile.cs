@@ -10,7 +10,7 @@ public class WriteToFile : MonoBehaviour
 
     [SerializeField] BaseCabinet baseCabinet;
 
-    void Start()
+    void Awake()
     {
 
         Directory.CreateDirectory(Application.streamingAssetsPath + "/Score_Log/");
@@ -18,7 +18,7 @@ public class WriteToFile : MonoBehaviour
 
     }
 
-    private void OnApplicationQuit() {
+    private void Start() {
 
         CreateTextFile();
         
@@ -26,7 +26,7 @@ public class WriteToFile : MonoBehaviour
 
     public void CreateTextFile() {
 
-        string txtDocumentName = Application.streamingAssetsPath + "/Score_Log/" + "Score" + ".txt";
+        string txtDocumentName = Application.streamingAssetsPath + "/Score_Log/" + "Score_" + baseCabinet.GetGameName() + ".txt";
 
         if (File.Exists(txtDocumentName)) {
 

@@ -1181,6 +1181,16 @@ PrefabInstance:
       propertyPath: mode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8630138411033175800, guid: e7c7454ffcc647a49ada6cf883abcccf,
+        type: 3}
+      propertyPath: TestName
+      value: Test1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8630138411033175800, guid: e7c7454ffcc647a49ada6cf883abcccf,
+        type: 3}
+      propertyPath: filePathName
+      value: Game1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1465,6 +1475,11 @@ PrefabInstance:
         type: 3}
       propertyPath: mode
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8630138411033175800, guid: e7c7454ffcc647a49ada6cf883abcccf,
+        type: 3}
+      propertyPath: filePathName
+      value: Game
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
