@@ -13,7 +13,7 @@ public class ScoreUI : MonoBehaviour
     private void Update() {
        
 
-        scoreUIText.text = baseCabinet.GetCurrentScore();
+        scoreUIText.text = baseCabinet.GetCurrentScoreLogFile();
         
 
     }

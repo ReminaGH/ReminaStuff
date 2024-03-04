@@ -29,6 +29,13 @@ public class PlayerController : MonoBehaviour {
 
     private void Start() {
         gameInput.OnInteractAction += GameInput_OnInteractAction;
+        gameInput.OnInteractAltAction += GameInput_OnInteractAltAction;
+    }
+
+    private void GameInput_OnInteractAltAction(object sender, EventArgs e) {
+        if (selectedCabinet != null) {
+            selectedCabinet.InteractAlt();
+        }
     }
 
     private void GameInput_OnInteractAction(object sender, System.EventArgs e) {

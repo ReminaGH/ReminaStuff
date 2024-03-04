@@ -10,45 +10,49 @@ using UnityEditor;
 
 public class BaseCabinet : MonoBehaviour
 {
-
-    [SerializeField] private string filePathName = "";
-
-    [SerializeField] private string testName = "Test";
+    [SerializeField] private GameInputUI gameInputUI;
+    [SerializeField] string filePathName = "";
+    [SerializeField] string projectName = "";
+    
     string fileContents;
-
-    private int scoreCounter = 1;
+    private int cabinetScoreCounter = 0;
 
     private const string FILE_PATH_NAME_ORIGIN = "/Assets/StreamingAssets/";
-    private const string FILE_PATH_SCORE = "My poject_Data/StreamingAssets/Score_Log";
-    string fileEndPath;
-
-    
-
-
-    //\Assets\StreamingAssets\Test\My project_Data\StreamingAssets\Score_Log\Score.txt
-
+    private const string FILE_PATH_SCORE = "/StreamingAssets/Score_Log/Score.txt";
+    private const string PROJECT_DATA_PATH = "_Data";
 
     private void Update() {
-        //string readFromFileTest = Application.streamingAssetsPath + "/Score_Log/" + "Score_" + filePathName + ".txt";
-        string readFromFileTest = Application.streamingAssetsPath + "/" + testName + FILE_PATH_SCORE + "Score" + ".txt";
+
+        filePathName = gameInputUI.ReturnInputName1();
+        projectName = gameInputUI.ReturnInputName2();
+
+        string readFromFileTest = Application.streamingAssetsPath + "/" + filePathName + "/" + projectName + PROJECT_DATA_PATH + FILE_PATH_SCORE;
 
         fileContents = File.ReadAllText(readFromFileTest);
 
-        fileEndPath = FILE_PATH_NAME_ORIGIN + testName + FILE_PATH_SCORE;
-
     }
+
     public void Interact() {
 
         UnityEngine.Debug.Log("Interact!");
 
-        RunFile();
-
-        UnityEngine.Debug.Log(@"\Assets\StreamingAssets\Test\My project_Data\StreamingAssets\Score_Log\Score.txt");
+        RunFile(filePathName, FILE_PATH_NAME_ORIGIN, projectName);
     }
-    public string GetCurrentScore() {
+
+    public void InteractAlt() {
+
+        UnityEngine.Debug.Log("Interact Alt!");
+
+        gameInputUI.Show();
+    }
+    public string GetCurrentScoreLogFile() {
         string fileText = fileContents;
 
         return fileContents;
+    }
+
+    public int GetCurrentScore() {
+        return cabinetScoreCounter;
     }
 
     public string GetGameName() {
@@ -57,9 +61,8 @@ public class BaseCabinet : MonoBehaviour
         return fileName;
     }
 
-    private static void RunFile() {
-        Process.Start(Environment.CurrentDirectory + "S");
-        //Process.Start(Environment.CurrentDirectory + @"\Assets\StreamingAssets\Test\My project.exe");
+    private static void RunFile(string filePathName, string FILE_PATH_NAME_ORIGIN, string projectName) {
+        Process.Start(Environment.CurrentDirectory + @FILE_PATH_NAME_ORIGIN + @filePathName + "/" + @projectName + @".exe");
     }
 
     

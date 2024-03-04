@@ -34,6 +34,6 @@ public class WriteToFile : MonoBehaviour
         
         }
 
-        File.WriteAllText(txtDocumentName, baseCabinet.GetCurrentScore());
+        File.WriteAllText(txtDocumentName, baseCabinet.GetCurrentScore().ToString());
     }
 }
