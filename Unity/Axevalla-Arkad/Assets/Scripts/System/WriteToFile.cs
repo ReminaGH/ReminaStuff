@@ -8,8 +8,6 @@ using System;
 public class WriteToFile : MonoBehaviour
 {
 
-    [SerializeField] BaseCabinet baseCabinet;
-
     void Awake()
     {
 
@@ -26,14 +24,13 @@ public class WriteToFile : MonoBehaviour
 
     public void CreateTextFile() {
 
-        string txtDocumentName = Application.streamingAssetsPath + "/Score_Log/" + "Score_" + baseCabinet.GetGameName() + ".txt";
+        string txtDocumentName = Application.streamingAssetsPath + "/Score_Log/" + "Score" + ".txt";
 
         if (File.Exists(txtDocumentName)) {
 
             File.Delete(txtDocumentName);
         
         }
-
-        File.WriteAllText(txtDocumentName, baseCabinet.GetCurrentScore().ToString());
+        File.WriteAllText(txtDocumentName, "");
     }
 }

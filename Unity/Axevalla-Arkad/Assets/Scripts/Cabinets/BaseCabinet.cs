@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
@@ -7,28 +7,45 @@ using static UnityEngine.UIElements.UxmlAttributeDescription;
 using System.Xml.Linq;
 using System.IO;
 using UnityEditor;
+using static UnityEditor.Progress;
+using System.Text;
+using UnityEditor.Timeline.Actions;
 
 public class BaseCabinet : MonoBehaviour
 {
     [SerializeField] private GameInputUI gameInputUI;
-    [SerializeField] string filePathName = "";
-    [SerializeField] string projectName = "";
-    
+    [SerializeField] string filePathName;
+    [SerializeField] string projectName;
+
     string fileContents;
     private int cabinetScoreCounter = 0;
 
-    private const string FILE_PATH_NAME_ORIGIN = "/Assets/StreamingAssets/";
-    private const string FILE_PATH_SCORE = "/StreamingAssets/Score_Log/Score.txt";
-    private const string PROJECT_DATA_PATH = "_Data";
+    string test_1 = "Test";
+    string test_2 = "My project";
 
+    string test = @"\Test\My project_Data\StreamingAssets\Score_Log\Score" + ".txt";
+    string test2;
+    string test3;
+ 
     private void Update() {
 
         filePathName = gameInputUI.ReturnInputName1();
         projectName = gameInputUI.ReturnInputName2();
 
-        string readFromFileTest = Application.streamingAssetsPath + "/" + filePathName + "/" + projectName + PROJECT_DATA_PATH + FILE_PATH_SCORE;
+        test2 = @"\" + test_1 + @"\" + test_2 + @"_Data\StreamingAssets\Score_Log\Score" + ".txt";
+        test3 = @"\" + filePathName + @"\" + projectName + @"_Data\StreamingAssets\Score_Log\Score" + ".txt";
 
+        
+
+        string readFromFileTest = Application.streamingAssetsPath + test2;
         fileContents = File.ReadAllText(readFromFileTest);
+
+        UnityEngine.Debug.Log(filePathName);
+        UnityEngine.Debug.Log(test_1);
+        UnityEngine.Debug.Log(projectName);
+        UnityEngine.Debug.Log(test_2);
+        UnityEngine.Debug.Log(test2);
+        UnityEngine.Debug.Log(test3);
 
     }
 
@@ -36,7 +53,7 @@ public class BaseCabinet : MonoBehaviour
 
         UnityEngine.Debug.Log("Interact!");
 
-        RunFile(filePathName, FILE_PATH_NAME_ORIGIN, projectName);
+        RunFile();
     }
 
     public void InteractAlt() {
@@ -61,9 +78,9 @@ public class BaseCabinet : MonoBehaviour
         return fileName;
     }
 
-    private static void RunFile(string filePathName, string FILE_PATH_NAME_ORIGIN, string projectName) {
-        Process.Start(Environment.CurrentDirectory + @FILE_PATH_NAME_ORIGIN + @filePathName + "/" + @projectName + @".exe");
+    private static void RunFile() {
+        Process.Start(Environment.CurrentDirectory + @"\Assets\StreamingAssets\Test\My project" + ".exe");
     }
 
-    
+
 }

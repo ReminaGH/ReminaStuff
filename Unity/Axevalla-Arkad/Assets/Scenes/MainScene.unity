@@ -1328,6 +1328,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1746612648}
     m_Modifications:
+    - target: {fileID: 398680422273658864, guid: e7c7454ffcc647a49ada6cf883abcccf,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 535
+      objectReference: {fileID: 0}
+    - target: {fileID: 398680422273658864, guid: e7c7454ffcc647a49ada6cf883abcccf,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 168
+      objectReference: {fileID: 0}
     - target: {fileID: 431739337478915326, guid: e7c7454ffcc647a49ada6cf883abcccf,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -1363,6 +1373,16 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 1811424602029659538, guid: e7c7454ffcc647a49ada6cf883abcccf,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 535
+      objectReference: {fileID: 0}
+    - target: {fileID: 1811424602029659538, guid: e7c7454ffcc647a49ada6cf883abcccf,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -135
+      objectReference: {fileID: 0}
     - target: {fileID: 1821349162325582874, guid: e7c7454ffcc647a49ada6cf883abcccf,
         type: 3}
       propertyPath: m_Name
@@ -1377,6 +1397,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4354497046910617501, guid: e7c7454ffcc647a49ada6cf883abcccf,
+        type: 3}
+      propertyPath: m_Text
+      value: Test
+      objectReference: {fileID: 0}
+    - target: {fileID: 4354497046910617501, guid: e7c7454ffcc647a49ada6cf883abcccf,
+        type: 3}
+      propertyPath: m_ContentType
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4354497046910617501, guid: e7c7454ffcc647a49ada6cf883abcccf,
+        type: 3}
+      propertyPath: m_CharacterValidation
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5542102392557745491, guid: e7c7454ffcc647a49ada6cf883abcccf,
+        type: 3}
+      propertyPath: m_Text
+      value: My project
+      objectReference: {fileID: 0}
+    - target: {fileID: 5542102392557745491, guid: e7c7454ffcc647a49ada6cf883abcccf,
+        type: 3}
+      propertyPath: m_ContentType
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5542102392557745491, guid: e7c7454ffcc647a49ada6cf883abcccf,
+        type: 3}
+      propertyPath: m_CharacterValidation
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7023444338234235438, guid: e7c7454ffcc647a49ada6cf883abcccf,
         type: 3}
