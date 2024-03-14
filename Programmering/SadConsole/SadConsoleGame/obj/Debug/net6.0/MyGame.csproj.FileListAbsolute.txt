@@ -22,9 +22,9 @@ C:\Users\major\OneDrive\Dokument\CPGIT\CpStuff\Programmering\SadConsole\SadConso
 C:\Users\major\OneDrive\Dokument\CPGIT\CpStuff\Programmering\SadConsole\SadConsoleGame\obj\Debug\net6.0\MyGame.AssemblyInfo.cs
 C:\Users\major\OneDrive\Dokument\CPGIT\CpStuff\Programmering\SadConsole\SadConsoleGame\obj\Debug\net6.0\MyGame.csproj.CoreCompileInputs.cache
 C:\Users\major\OneDrive\Dokument\CPGIT\CpStuff\Programmering\SadConsole\SadConsoleGame\obj\Debug\net6.0\MyGame.sourcelink.json
-C:\Users\major\OneDrive\Dokument\CPGIT\CpStuff\Programmering\SadConsole\SadConsoleGame\obj\Debug\net6.0\MyGame.csproj.CopyComplete
 C:\Users\major\OneDrive\Dokument\CPGIT\CpStuff\Programmering\SadConsole\SadConsoleGame\obj\Debug\net6.0\MyGame.dll
 C:\Users\major\OneDrive\Dokument\CPGIT\CpStuff\Programmering\SadConsole\SadConsoleGame\obj\Debug\net6.0\refint\MyGame.dll
 C:\Users\major\OneDrive\Dokument\CPGIT\CpStuff\Programmering\SadConsole\SadConsoleGame\obj\Debug\net6.0\MyGame.pdb
 C:\Users\major\OneDrive\Dokument\CPGIT\CpStuff\Programmering\SadConsole\SadConsoleGame\obj\Debug\net6.0\MyGame.genruntimeconfig.cache
 C:\Users\major\OneDrive\Dokument\CPGIT\CpStuff\Programmering\SadConsole\SadConsoleGame\obj\Debug\net6.0\ref\MyGame.dll
+C:\Users\major\OneDrive\Dokument\CPGIT\CpStuff\Programmering\SadConsole\SadConsoleGame\obj\Debug\net6.0\MyGame.csproj.Up2Date
