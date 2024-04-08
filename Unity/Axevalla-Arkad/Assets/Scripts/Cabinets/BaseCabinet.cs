@@ -8,6 +8,7 @@ using System.Xml.Linq;
 using System.IO;
 using UnityEditor;
 using System.Text;
+using Mono.CSharp;
 
 public class BaseCabinet : MonoBehaviour
 {
@@ -31,18 +32,26 @@ public class BaseCabinet : MonoBehaviour
 
         fullFilePath = "/" + filePathNameCorrected + "/" + projectNameCorrected + "_Data/StreamingAssets/Score_Log/Score" + ".txt";
 
-        
 
-        string readFromFileTest = Application.streamingAssetsPath + fullFilePath;
-        fileContents = File.ReadAllText(readFromFileTest);
+        /*try {
+            string readFromFile = Application.streamingAssetsPath + fullFilePath;
+            fileContents = File.ReadAllText(readFromFile);
+        } catch {
 
+            UnityEngine.Debug.Log("Cabinet number :" + gameObject.name + " has no correct path");
+        }*/
         
+    }
+    private void Start() { // Not right one for intialiting score
+        string readFromFile = Application.streamingAssetsPath + fullFilePath;
+        fileContents = File.ReadAllText(readFromFile);
     }
 
     public void Interact() {
 
         UnityEngine.Debug.Log("Interact!");
-
+        string readFromFile = Application.streamingAssetsPath + fullFilePath;
+        fileContents = File.ReadAllText(readFromFile);
         RunFile(filePathNameCorrected, projectNameCorrected);
     }
 
@@ -53,6 +62,7 @@ public class BaseCabinet : MonoBehaviour
         gameInputUI.Show();
     }
     public string GetCurrentScoreLogFile() {
+
         string fileText = fileContents;
 
         return fileContents;
