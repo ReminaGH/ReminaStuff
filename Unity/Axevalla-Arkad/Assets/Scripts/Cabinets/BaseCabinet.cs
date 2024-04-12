@@ -9,6 +9,7 @@ using System.IO;
 using UnityEditor;
 using System.Text;
 using Mono.CSharp;
+using static UnityEngine.InputSystem.InputAction;
 
 public class BaseCabinet : MonoBehaviour
 {
@@ -21,50 +22,50 @@ public class BaseCabinet : MonoBehaviour
     string fullFilePath;
     string projectNameCorrected;
     string filePathNameCorrected;
- 
+    string readFromFile;
+
     private void Update() {
 
-        filePathName = gameInputUI.ReturnInputName1();
-        projectName = gameInputUI.ReturnInputName2();
-
-        filePathNameCorrected = filePathName.Substring(0, filePathName.Length - 1);
-        projectNameCorrected = projectName.Substring(0, projectName.Length - 1);
-
-        fullFilePath = "/" + filePathNameCorrected + "/" + projectNameCorrected + "_Data/StreamingAssets/Score_Log/Score" + ".txt";
-
-
-        /*try {
-            string readFromFile = Application.streamingAssetsPath + fullFilePath;
-            fileContents = File.ReadAllText(readFromFile);
-        } catch {
-
-            UnityEngine.Debug.Log("Cabinet number :" + gameObject.name + " has no correct path");
-        }*/
+        UpdateFilePath();
         
+
+        try {
+            fileContents = File.ReadAllText(readFromFile);
+        } catch (Exception e) {
+        }
+
+        //UnityEngine.Debug.Log(fileContents);
+        //UnityEngine.Debug.Log(readFromFile);
+        //C:/Users/datahaxx/Documents/CPGit/CpStuff/Unity/Axevalla-Arkad/Assets/StreamingAssets//_Data/StreamingAssets/Score_Log/Score.txt
+        //C:\Users\datahaxx\Documents\CPGit\CpStuff\Unity\Axevalla-Arkad/Assets/StreamingAssets/Test/My project.exe
+
+        
+       
+
+
     }
-    private void Start() { // Not right one for intialiting score
-        string readFromFile = Application.streamingAssetsPath + fullFilePath;
-        fileContents = File.ReadAllText(readFromFile);
+    private void Start() {
+        UpdateFilePath();
+        
     }
 
     public void Interact() {
 
-        UnityEngine.Debug.Log("Interact!");
-        string readFromFile = Application.streamingAssetsPath + fullFilePath;
-        fileContents = File.ReadAllText(readFromFile);
+        UpdateFilePath();
+        //UnityEngine.Debug.Log("Sökvägen är för fullFilePath: " + fullFilePath);
+        //UnityEngine.Debug.Log("Sökvägen är för Application.streamingAssetsPath: " + readFromFile);
+        UnityEngine.Debug.Log("Sökvägen är för Enviroment: " + Environment.CurrentDirectory + "/Assets/StreamingAssets/" + filePathNameCorrected + "/" + projectNameCorrected + ".exe");
         RunFile(filePathNameCorrected, projectNameCorrected);
     }
 
     public void InteractAlt() {
+        UpdateFilePath();
 
         UnityEngine.Debug.Log("Interact Alt!");
 
         gameInputUI.Show();
     }
     public string GetCurrentScoreLogFile() {
-
-        string fileText = fileContents;
-
         return fileContents;
     }
 
@@ -72,14 +73,32 @@ public class BaseCabinet : MonoBehaviour
         return cabinetScoreCounter;
     }
 
-    public string GetGameName() {
-        string fileName = filePathName;
-
-        return fileName;
+    private static void RunFile(string filePathNameCorrected, string projectNameCorrected) {
+        try {
+            Process.Start(Environment.CurrentDirectory + "/My project_Data/StreamingAssets/" + filePathNameCorrected + "/" + projectNameCorrected + ".exe");
+            UnityEngine.Debug.Log(Environment.CurrentDirectory + "/My project_Data/StreamingAssets/" + filePathNameCorrected + "/" + projectNameCorrected + ".exe");
+        } catch (Exception e) {
+            UnityEngine.Debug.Log(e.ToString());
+        }
     }
 
-    private static void RunFile(string filePathNameCorrected, string projectNameCorrected) {
-        Process.Start(Environment.CurrentDirectory + "/Assets/StreamingAssets/"+ filePathNameCorrected +"/" + projectNameCorrected + ".exe");
+    public string UpdateFilePath() {
+
+        filePathName = gameInputUI.ReturnInputName1();
+        projectName = gameInputUI.ReturnInputName2();
+
+        try {
+            filePathNameCorrected = filePathName.Substring(0, filePathName.Length - 1);
+            projectNameCorrected = projectName.Substring(0, projectName.Length - 1);
+        } catch (Exception e) {
+            UnityEngine.Debug.Log("No file found, error message: " + e);
+        }
+
+ 
+        fullFilePath = "/" + filePathNameCorrected + "/" + projectNameCorrected + "_Data/StreamingAssets/Score_Log/Score" + ".txt";
+        //readFromFile = Application.streamingAssetsPath + fullFilePath;
+        readFromFile = @"C:\\Users\\datahaxx\\Documents\\CPGit\\CpStuff\\Unity\\Compiled\\My project_Data\\StreamingAssets" + fullFilePath;
+        return fullFilePath;
     }
 
 }

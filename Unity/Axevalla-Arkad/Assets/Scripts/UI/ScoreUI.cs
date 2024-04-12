@@ -10,10 +10,15 @@ public class ScoreUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoreUIText;
     [SerializeField] private BaseCabinet baseCabinet;
 
-    private void Update() {
-       
+    string baseCabinetStringContent;
 
-        scoreUIText.text = baseCabinet.GetCurrentScoreLogFile();
+    private void Update() {
+
+
+        baseCabinetStringContent = baseCabinet.GetCurrentScoreLogFile();
+  
+        scoreUIText.text = baseCabinetStringContent;
+        
         
 
     }
