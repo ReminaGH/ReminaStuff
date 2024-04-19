@@ -12,6 +12,8 @@ public class ScoreUI : MonoBehaviour
 
     string baseCabinetStringContent;
 
+
+    //Returns the file contents of the .txt file using the specicifc file locations provided by the BaseCabinet
     private void Update() {
 
 

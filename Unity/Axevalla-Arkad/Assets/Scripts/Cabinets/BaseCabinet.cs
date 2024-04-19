@@ -28,20 +28,11 @@ public class BaseCabinet : MonoBehaviour
 
         UpdateFilePath();
         
-
+        //Reads the files where the score is provided, this is used to provide an accurate and realtime score of whatever game is playing.
         try {
             fileContents = File.ReadAllText(readFromFile);
         } catch (Exception e) {
         }
-
-        //UnityEngine.Debug.Log(fileContents);
-        //UnityEngine.Debug.Log(readFromFile);
-        //C:/Users/datahaxx/Documents/CPGit/CpStuff/Unity/Axevalla-Arkad/Assets/StreamingAssets//_Data/StreamingAssets/Score_Log/Score.txt
-        //C:\Users\datahaxx\Documents\CPGit\CpStuff\Unity\Axevalla-Arkad/Assets/StreamingAssets/Test/My project.exe
-
-        
-       
-
 
     }
     private void Start() {
@@ -49,15 +40,16 @@ public class BaseCabinet : MonoBehaviour
         
     }
 
+    //This function is executed by the playerController whenever they press "e" on the cabinet, this uses an event system to trigger it.
     public void Interact() {
 
         UpdateFilePath();
-        //UnityEngine.Debug.Log("Sökvägen är för fullFilePath: " + fullFilePath);
-        //UnityEngine.Debug.Log("Sökvägen är för Application.streamingAssetsPath: " + readFromFile);
-        UnityEngine.Debug.Log("Sökvägen är för Enviroment: " + Environment.CurrentDirectory + "/Assets/StreamingAssets/" + filePathNameCorrected + "/" + projectNameCorrected + ".exe");
+
+        //Method to run the appropriate files, names and locations are provided and corrected by another method
         RunFile(filePathNameCorrected, projectNameCorrected);
     }
 
+    //This method opens up the alternate Ui where you as the user can input the appropriate location paths to your game
     public void InteractAlt() {
         UpdateFilePath();
 
@@ -65,6 +57,8 @@ public class BaseCabinet : MonoBehaviour
 
         gameInputUI.Show();
     }
+
+    //Returns the filelocation of the txt file that contains the current score
     public string GetCurrentScoreLogFile() {
         return fileContents;
     }
@@ -73,10 +67,12 @@ public class BaseCabinet : MonoBehaviour
         return cabinetScoreCounter;
     }
 
+    //This runs the selected program, and uses the corrected path to launch the correct .exe file
     private static void RunFile(string filePathNameCorrected, string projectNameCorrected) {
         try {
-            Process.Start(Environment.CurrentDirectory + "/My project_Data/StreamingAssets/" + filePathNameCorrected + "/" + projectNameCorrected + ".exe");
-            UnityEngine.Debug.Log(Environment.CurrentDirectory + "/My project_Data/StreamingAssets/" + filePathNameCorrected + "/" + projectNameCorrected + ".exe");
+
+            Process.Start(Application.streamingAssetsPath + "/" + filePathNameCorrected + "/"+ projectNameCorrected + ".exe");
+
         } catch (Exception e) {
             UnityEngine.Debug.Log(e.ToString());
         }
@@ -96,9 +92,10 @@ public class BaseCabinet : MonoBehaviour
 
  
         fullFilePath = "/" + filePathNameCorrected + "/" + projectNameCorrected + "_Data/StreamingAssets/Score_Log/Score" + ".txt";
-        //readFromFile = Application.streamingAssetsPath + fullFilePath;
-        readFromFile = @"C:\\Users\\datahaxx\\Documents\\CPGit\\CpStuff\\Unity\\Compiled\\My project_Data\\StreamingAssets" + fullFilePath;
+        readFromFile = Application.streamingAssetsPath + fullFilePath;
+
         return fullFilePath;
+
     }
 
 }
