@@ -35,8 +35,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
-<<<<<<< HEAD
-=======
                 },
                 {
                     ""name"": ""Interact"",
@@ -55,7 +53,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
->>>>>>> f5a79f2900df5b8355248ce8cf902b53027adda9
                 }
             ],
             ""bindings"": [
@@ -113,8 +110,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
-<<<<<<< HEAD
-=======
                 },
                 {
                     ""name"": """",
@@ -137,7 +132,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Interact Alt"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
->>>>>>> f5a79f2900df5b8355248ce8cf902b53027adda9
                 }
             ]
         }
@@ -147,11 +141,8 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
-<<<<<<< HEAD
-=======
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_InteractAlt = m_Player.FindAction("Interact Alt", throwIfNotFound: true);
->>>>>>> f5a79f2900df5b8355248ce8cf902b53027adda9
     }
 
     public void Dispose()
@@ -214,21 +205,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player;
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_Move;
-<<<<<<< HEAD
-=======
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_InteractAlt;
->>>>>>> f5a79f2900df5b8355248ce8cf902b53027adda9
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
         public PlayerActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player_Move;
-<<<<<<< HEAD
-=======
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @InteractAlt => m_Wrapper.m_Player_InteractAlt;
->>>>>>> f5a79f2900df5b8355248ce8cf902b53027adda9
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -241,15 +226,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
-<<<<<<< HEAD
-=======
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
             @InteractAlt.started += instance.OnInteractAlt;
             @InteractAlt.performed += instance.OnInteractAlt;
             @InteractAlt.canceled += instance.OnInteractAlt;
->>>>>>> f5a79f2900df5b8355248ce8cf902b53027adda9
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -257,15 +239,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
-<<<<<<< HEAD
-=======
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
             @InteractAlt.started -= instance.OnInteractAlt;
             @InteractAlt.performed -= instance.OnInteractAlt;
             @InteractAlt.canceled -= instance.OnInteractAlt;
->>>>>>> f5a79f2900df5b8355248ce8cf902b53027adda9
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -286,10 +265,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     public interface IPlayerActions
     {
         void OnMove(InputAction.CallbackContext context);
-<<<<<<< HEAD
-=======
         void OnInteract(InputAction.CallbackContext context);
         void OnInteractAlt(InputAction.CallbackContext context);
->>>>>>> f5a79f2900df5b8355248ce8cf902b53027adda9
     }
 }
