@@ -9,6 +9,7 @@ using System.IO;
 using UnityEditor;
 using System.Text;
 using Mono.CSharp;
+using static UnityEngine.InputSystem.InputAction;
 
 public class BaseCabinet : MonoBehaviour
 {
@@ -21,50 +22,44 @@ public class BaseCabinet : MonoBehaviour
     string fullFilePath;
     string projectNameCorrected;
     string filePathNameCorrected;
- 
+    string readFromFile;
+
     private void Update() {
 
-        filePathName = gameInputUI.ReturnInputName1();
-        projectName = gameInputUI.ReturnInputName2();
-
-        filePathNameCorrected = filePathName.Substring(0, filePathName.Length - 1);
-        projectNameCorrected = projectName.Substring(0, projectName.Length - 1);
-
-        fullFilePath = "/" + filePathNameCorrected + "/" + projectNameCorrected + "_Data/StreamingAssets/Score_Log/Score" + ".txt";
-
-
-        /*try {
-            string readFromFile = Application.streamingAssetsPath + fullFilePath;
+        UpdateFilePath();
+        
+        //Reads the files where the score is provided, this is used to provide an accurate and realtime score of whatever game is playing.
+        try {
             fileContents = File.ReadAllText(readFromFile);
-        } catch {
+        } catch (Exception e) {
+        }
 
-            UnityEngine.Debug.Log("Cabinet number :" + gameObject.name + " has no correct path");
-        }*/
+    }
+    private void Start() {
+        UpdateFilePath();
         
     }
-    private void Start() { // Not right one for intialiting score
-        string readFromFile = Application.streamingAssetsPath + fullFilePath;
-        fileContents = File.ReadAllText(readFromFile);
-    }
 
+    //This function is executed by the playerController whenever they press "e" on the cabinet, this uses an event system to trigger it.
     public void Interact() {
 
-        UnityEngine.Debug.Log("Interact!");
-        string readFromFile = Application.streamingAssetsPath + fullFilePath;
-        fileContents = File.ReadAllText(readFromFile);
+        UpdateFilePath();
+
+        //Method to run the appropriate files, names and locations are provided and corrected by another method
         RunFile(filePathNameCorrected, projectNameCorrected);
     }
 
+    //This method opens up the alternate Ui where you as the user can input the appropriate location paths to your game
     public void InteractAlt() {
+        UpdateFilePath();
 
         UnityEngine.Debug.Log("Interact Alt!");
 
         gameInputUI.Show();
     }
+
+    //Returns the filelocation of the txt file that contains the current score
     public string GetCurrentScoreLogFile() {
-
-        string fileText = fileContents;
-
         return fileContents;
     }
 
@@ -72,14 +67,35 @@ public class BaseCabinet : MonoBehaviour
         return cabinetScoreCounter;
     }
 
-    public string GetGameName() {
-        string fileName = filePathName;
+    //This runs the selected program, and uses the corrected path to launch the correct .exe file
+    private static void RunFile(string filePathNameCorrected, string projectNameCorrected) {
+        try {
 
-        return fileName;
+            Process.Start(Application.streamingAssetsPath + "/" + filePathNameCorrected + "/"+ projectNameCorrected + ".exe");
+
+        } catch (Exception e) {
+            UnityEngine.Debug.Log(e.ToString());
+        }
     }
 
-    private static void RunFile(string filePathNameCorrected, string projectNameCorrected) {
-        Process.Start(Environment.CurrentDirectory + "/Assets/StreamingAssets/"+ filePathNameCorrected +"/" + projectNameCorrected + ".exe");
+    public string UpdateFilePath() {
+
+        filePathName = gameInputUI.ReturnInputName1();
+        projectName = gameInputUI.ReturnInputName2();
+
+        try {
+            filePathNameCorrected = filePathName.Substring(0, filePathName.Length - 1);
+            projectNameCorrected = projectName.Substring(0, projectName.Length - 1);
+        } catch (Exception e) {
+            UnityEngine.Debug.Log("No file found, error message: " + e);
+        }
+
+ 
+        fullFilePath = "/" + filePathNameCorrected + "/" + projectNameCorrected + "_Data/StreamingAssets/Score_Log/Score" + ".txt";
+        readFromFile = Application.streamingAssetsPath + fullFilePath;
+
+        return fullFilePath;
+
     }
 
 }
