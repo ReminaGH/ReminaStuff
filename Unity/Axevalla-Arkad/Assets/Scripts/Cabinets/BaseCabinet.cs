@@ -14,9 +14,6 @@ using Unity.VisualScripting;
 
 public class BaseCabinet : MonoBehaviour
 {
-
-    public static BaseCabinet Score { get; private set; }
-
     [SerializeField] private GameInputUI gameInputUI;
     [SerializeField] string filePathName;
     [SerializeField] string projectName;
@@ -38,9 +35,6 @@ public class BaseCabinet : MonoBehaviour
         } catch (Exception e) {
         }
 
-    }
-    private void Awake() {
-        Score = this;
     }
     private void Start() {
         UpdateFilePath();
@@ -104,5 +98,10 @@ public class BaseCabinet : MonoBehaviour
         return fullFilePath;
 
     }
+
+    public void UpdateGame() {
+        UpdateFilePath();
+        UnityEngine.Debug.Log(GetCurrentScoreLogFile());
+        }
 
 }
