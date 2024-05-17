@@ -10,9 +10,13 @@ using UnityEditor;
 using System.Text;
 using Mono.CSharp;
 using static UnityEngine.InputSystem.InputAction;
+using Unity.VisualScripting;
 
 public class BaseCabinet : MonoBehaviour
 {
+
+    public static BaseCabinet Score { get; private set; }
+
     [SerializeField] private GameInputUI gameInputUI;
     [SerializeField] string filePathName;
     [SerializeField] string projectName;
@@ -26,7 +30,7 @@ public class BaseCabinet : MonoBehaviour
 
     private void Update() {
 
-        UpdateFilePath();
+        
         
         //Reads the files where the score is provided, this is used to provide an accurate and realtime score of whatever game is playing.
         try {
@@ -34,6 +38,9 @@ public class BaseCabinet : MonoBehaviour
         } catch (Exception e) {
         }
 
+    }
+    private void Awake() {
+        Score = this;
     }
     private void Start() {
         UpdateFilePath();
