@@ -34,7 +34,7 @@ public class BaseCabinet : MonoBehaviour
             fileContents = File.ReadAllText(readFromFile);
         } catch (Exception e) {
         }
-
+        
     }
     private void Start() {
         UpdateFilePath();
@@ -48,10 +48,12 @@ public class BaseCabinet : MonoBehaviour
 
         //Method to run the appropriate files, names and locations are provided and corrected by another method
         RunFile(filePathNameCorrected, projectNameCorrected);
+            
     }
 
     //This method opens up the alternate Ui where you as the user can input the appropriate location paths to your game
     public void InteractAlt() {
+       
         UpdateFilePath();
 
         UnityEngine.Debug.Log("Interact Alt!");
@@ -71,8 +73,10 @@ public class BaseCabinet : MonoBehaviour
     //This runs the selected program, and uses the corrected path to launch the correct .exe file
     private static void RunFile(string filePathNameCorrected, string projectNameCorrected) {
         try {
-
+            
             Process.Start(Application.streamingAssetsPath + "/" + filePathNameCorrected + "/"+ projectNameCorrected + ".exe");
+            PlayerController.Instance.gamePausedToggle();
+            OtherGameRunningUI.isRunningUI.Show();
 
         } catch (Exception e) {
             UnityEngine.Debug.Log(e.ToString());
@@ -102,6 +106,10 @@ public class BaseCabinet : MonoBehaviour
     public void UpdateGame() {
         UpdateFilePath();
         UnityEngine.Debug.Log(GetCurrentScoreLogFile());
-        }
+    }
 
+    public void UpdateScore() {
+        ScoreUI.Score.AddScore(int.Parse(fileContents));
+        UnityEngine.Debug.Log("File contents, current score: " + fileContents);
+    }
 }
