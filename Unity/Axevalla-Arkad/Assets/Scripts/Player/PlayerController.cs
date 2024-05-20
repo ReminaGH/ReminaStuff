@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] private float moveSpeed = 7f;
     [SerializeField] private GameInput gameInput;
 
-
+    private bool gamePasued = false;
     private bool isWalking;
     private Vector3 lastInteractionDir;
     private BaseCabinet selectedCabinet;
@@ -33,20 +33,22 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void GameInput_OnInteractAltAction(object sender, EventArgs e) {
-        if (selectedCabinet != null) {
+        if (selectedCabinet != null && gamePasued == false) {
             selectedCabinet.InteractAlt();
         }
     }
 
     private void GameInput_OnInteractAction(object sender, System.EventArgs e) {
-        if (selectedCabinet != null) {
+        if (selectedCabinet != null && gamePasued == false) {
             selectedCabinet.Interact();
         }
     }
 
     private void Update() {
-        HandleMovement();
-        HandleInteractions();
+        if (gamePasued == false) {
+            HandleMovement();
+            HandleInteractions();
+        }
     }
     
     public bool IsWalking() { return isWalking; }
@@ -133,6 +135,11 @@ public class PlayerController : MonoBehaviour {
             selectedCabinet = selectedCabinet
         });
     }
+
+    public void gamePausedToggle() {
+        
+        gamePasued = !gamePasued;
+    } 
 
 }
 

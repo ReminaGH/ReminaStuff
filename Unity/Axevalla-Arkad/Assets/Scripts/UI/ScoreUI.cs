@@ -16,7 +16,12 @@ public class ScoreUI : MonoBehaviour
         Score = this;
     }
     public void Update() {
-        
-        
+
+        scoreUIText.text = testScore.ToString();
+    }
+
+    public void AddScore(int amount) {
+
+        testScore += amount;
     }
 }
