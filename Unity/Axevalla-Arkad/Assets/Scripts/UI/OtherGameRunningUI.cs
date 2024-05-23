@@ -8,6 +8,7 @@ public class OtherGameRunningUI : MonoBehaviour
 
     public static OtherGameRunningUI isRunningUI { get; private set; }
 
+
     private void Awake() {
          isRunningUI = this;
     }
@@ -20,5 +21,10 @@ public class OtherGameRunningUI : MonoBehaviour
     public void Hide() {
         gameObject.SetActive(false);
 
+    }
+
+    public void PlayerStateToggle() {
+
+        PlayerController.Instance.gamePausedToggle();
     }
 }

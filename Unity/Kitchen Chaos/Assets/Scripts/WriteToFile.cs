@@ -13,7 +13,7 @@ using System;
 //the timer to the gameInt
 public class WriteToFile : MonoBehaviour
 {
-
+    public static WriteToFile AccessPoint { get; set; }
     int gameScore;
     string txtDocumentName = Application.streamingAssetsPath + "/Score_Log/" + "Score" + ".txt";
 
@@ -29,6 +29,7 @@ public class WriteToFile : MonoBehaviour
 
     private void Start() {
 
+        AccessPoint = this;
         CreateTextFile();
         UnityEngine.Debug.Log("Text file created");
 
@@ -52,7 +53,7 @@ public class WriteToFile : MonoBehaviour
     private void OnDestroy() {
         
     
-    gameScore = DeliveryManager.Instance.GetSuccessfulRecipesAmount();
+    //gameScore = DeliveryManager.Instance.GetSuccessfulRecipesAmount();
         
         File.WriteAllText(txtDocumentName, gameScore.ToString());
     }
@@ -74,5 +75,10 @@ public class WriteToFile : MonoBehaviour
     public void WriteToTxtFile(int GameScore) {
 
         File.WriteAllText(txtDocumentName, gameScore.ToString());
+    }
+    public void WriteScoreToFile(int Score) {
+
+        gameScore += Score;
+
     }
 }

@@ -15,11 +15,12 @@ using Unity.VisualScripting;
 public class BaseCabinet : MonoBehaviour
 {
     [SerializeField] private GameInputUI gameInputUI;
+    [SerializeField] private OtherGameRunningUI otherGameRunningUI;
     [SerializeField] string filePathName;
     [SerializeField] string projectName;
 
     string fileContents;
-    private int cabinetScoreCounter = 0;
+    private int cabinetScoreCounter = 3;
     string fullFilePath;
     string projectNameCorrected;
     string filePathNameCorrected;
@@ -68,15 +69,16 @@ public class BaseCabinet : MonoBehaviour
 
     public int GetCurrentScore() {
         return cabinetScoreCounter;
+        
     }
 
     //This runs the selected program, and uses the corrected path to launch the correct .exe file
-    private static void RunFile(string filePathNameCorrected, string projectNameCorrected) {
+    private void RunFile(string filePathNameCorrected, string projectNameCorrected) {
         try {
             
             Process.Start(Application.streamingAssetsPath + "/" + filePathNameCorrected + "/"+ projectNameCorrected + ".exe");
             PlayerController.Instance.gamePausedToggle();
-            OtherGameRunningUI.isRunningUI.Show();
+            otherGameRunningUI.Show();
 
         } catch (Exception e) {
             UnityEngine.Debug.Log(e.ToString());
