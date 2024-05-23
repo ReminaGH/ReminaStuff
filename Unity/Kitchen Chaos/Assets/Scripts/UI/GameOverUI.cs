@@ -30,6 +30,7 @@ public class GameOverUI : MonoBehaviour {
             Show();
 
             recipesDeliveredText.text = DeliveryManager.Instance.GetSuccessfulRecipesAmount().ToString();
+            WriteToFile.AccessPoint.WriteScoreToFile(DeliveryManager.Instance.GetSuccessfulRecipesAmount());
         }
         else {
             Hide();
