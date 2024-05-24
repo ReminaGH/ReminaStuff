@@ -18,6 +18,7 @@ public class GameInputUI : MonoBehaviour
 
 
     private void Start() {
+        
         Hide(); 
     }
     public void Show() {

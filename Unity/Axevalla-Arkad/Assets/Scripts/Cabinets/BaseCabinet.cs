@@ -11,6 +11,8 @@ using System.Text;
 using Mono.CSharp;
 using static UnityEngine.InputSystem.InputAction;
 using Unity.VisualScripting;
+using System.Security.AccessControl;
+using EditorAttributes;
 
 public class BaseCabinet : MonoBehaviour
 {
@@ -18,6 +20,7 @@ public class BaseCabinet : MonoBehaviour
     [SerializeField] private OtherGameRunningUI otherGameRunningUI;
     [SerializeField] string filePathName;
     [SerializeField] string projectName;
+    [SerializeField] private bool ChangeName = false;
 
     string fileContents;
     private int cabinetScoreCounter = 3;
@@ -37,9 +40,19 @@ public class BaseCabinet : MonoBehaviour
         }
         
     }
+
+    private void Awake() {
+
+        UpdateFilePathOnAwake();
+       
+
+    }
     private void Start() {
-        UpdateFilePath();
+
         
+        UpdateFilePathOnAwake();
+        
+
     }
 
     //This function is executed by the playerController whenever they press "e" on the cabinet, this uses an event system to trigger it.
@@ -87,17 +100,35 @@ public class BaseCabinet : MonoBehaviour
 
     public string UpdateFilePath() {
 
-        filePathName = gameInputUI.ReturnInputName1();
-        projectName = gameInputUI.ReturnInputName2();
+        if (filePathName == "" && projectName == "") { filePathName = gameInputUI.ReturnInputName1(); 
+        
+
+            try {
+                filePathNameCorrected = filePathName.Substring(0, filePathName.Length - 1);
+                projectNameCorrected = projectName.Substring(0, projectName.Length - 1);
+            } catch (Exception e) {
+                UnityEngine.Debug.Log("No file found, error message: " + e);
+            }
+        }
+
+    fullFilePath = "/" + filePathNameCorrected + "/" + projectNameCorrected + "_Data/StreamingAssets/Score_Log/Score" + ".txt";
+        readFromFile = Application.streamingAssetsPath + fullFilePath;
+
+        return fullFilePath;
+
+    }
+
+    public string UpdateFilePathOnAwake() {
+
 
         try {
-            filePathNameCorrected = filePathName.Substring(0, filePathName.Length - 1);
-            projectNameCorrected = projectName.Substring(0, projectName.Length - 1);
+            filePathNameCorrected = filePathName;
+            projectNameCorrected = projectName;
         } catch (Exception e) {
             UnityEngine.Debug.Log("No file found, error message: " + e);
         }
 
- 
+
         fullFilePath = "/" + filePathNameCorrected + "/" + projectNameCorrected + "_Data/StreamingAssets/Score_Log/Score" + ".txt";
         readFromFile = Application.streamingAssetsPath + fullFilePath;
 
@@ -114,4 +145,23 @@ public class BaseCabinet : MonoBehaviour
         ScoreUI.Score.AddScore(int.Parse(fileContents));
         UnityEngine.Debug.Log("File contents, current score: " + fileContents);
     }
+    public string ReturnCabinetGameName() {
+        if (ChangeName == false) {
+            return projectNameCorrected;
+        }
+        else {
+            return filePathNameCorrected;
+        }
+    }
+
+    public string ReturnProjectNameOnStart() {
+
+        return projectNameCorrected;
+    }
+
+    public string ReturnFileNameOnStart() {
+
+        return filePathNameCorrected;
+    }
+
 }
