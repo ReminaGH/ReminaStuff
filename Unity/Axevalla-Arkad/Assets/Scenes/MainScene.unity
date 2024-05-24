@@ -935,8 +935,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.2958095, y: 0.006302004, z: -0.0019515684, w: -0.9552242}
-  m_LocalPosition: {x: -1.2901578, y: 12.088762, z: -9.077374}
+  m_LocalRotation: {x: -0.07971601, y: 0.015545478, z: -0.0012578755, w: -0.99669564}
+  m_LocalPosition: {x: -1.3159792, y: 4.501748, z: -5.9198503}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1258,6 +1258,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8630138411033175800, guid: e7c7454ffcc647a49ada6cf883abcccf,
+        type: 3}
+      propertyPath: projectName
+      value: Kitchen Chaos
+      objectReference: {fileID: 0}
+    - target: {fileID: 8630138411033175800, guid: e7c7454ffcc647a49ada6cf883abcccf,
+        type: 3}
+      propertyPath: filePathName
+      value: KC_Test
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1513,6 +1523,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8630138411033175800, guid: e7c7454ffcc647a49ada6cf883abcccf,
+        type: 3}
+      propertyPath: ChangeName
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8630138411033175800, guid: e7c7454ffcc647a49ada6cf883abcccf,
+        type: 3}
+      propertyPath: projectName
+      value: Slut project e
+      objectReference: {fileID: 0}
+    - target: {fileID: 8630138411033175800, guid: e7c7454ffcc647a49ada6cf883abcccf,
+        type: 3}
+      propertyPath: filePathName
+      value: Builders
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2172,8 +2197,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1474765516}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.29580948, y: 0.0063020037, z: -0.0019515683, w: -0.95522416}
-  m_LocalPosition: {x: -1.2901578, y: 12.088762, z: -9.077374}
+  m_LocalRotation: {x: -0.07971601, y: 0.015545478, z: -0.0012578755, w: -0.99669564}
+  m_LocalPosition: {x: -1.3159792, y: 4.501748, z: -5.9198503}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2746,6 +2771,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8630138411033175800, guid: e7c7454ffcc647a49ada6cf883abcccf,
+        type: 3}
+      propertyPath: projectName
+      value: Robomania
+      objectReference: {fileID: 0}
+    - target: {fileID: 8630138411033175800, guid: e7c7454ffcc647a49ada6cf883abcccf,
+        type: 3}
+      propertyPath: filePathName
+      value: Robomania
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
