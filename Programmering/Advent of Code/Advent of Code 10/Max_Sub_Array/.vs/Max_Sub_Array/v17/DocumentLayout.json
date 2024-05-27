@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\major\\OneDrive\\Dokument\\CPGIT\\CpStuff\\Programmering\\Advent of Code\\Advent of Code 10\\Max_Sub_Array\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{48B3AF1C-2EE7-4367-9DA1-CF5C0AD282E4}|Max_Sub_Array\\Max_Sub_Array.csproj|c:\\users\\major\\onedrive\\dokument\\cpgit\\cpstuff\\programmering\\advent of code\\advent of code 10\\max_sub_array\\max_sub_array\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48B3AF1C-2EE7-4367-9DA1-CF5C0AD282E4}|Max_Sub_Array\\Max_Sub_Array.csproj|solutionrelative:max_sub_array\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\major\\OneDrive\\Dokument\\CPGIT\\CpStuff\\Programmering\\Advent of Code\\Advent of Code 10\\Max_Sub_Array\\Max_Sub_Array\\Program.cs",
+              "RelativeDocumentMoniker": "Max_Sub_Array\\Program.cs",
+              "ToolTip": "C:\\Users\\major\\OneDrive\\Dokument\\CPGIT\\CpStuff\\Programmering\\Advent of Code\\Advent of Code 10\\Max_Sub_Array\\Max_Sub_Array\\Program.cs",
+              "RelativeToolTip": "Max_Sub_Array\\Program.cs",
+              "ViewState": "AQIAAAIAAAAAAAAAAAAAABEAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-10T08:13:41.439Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

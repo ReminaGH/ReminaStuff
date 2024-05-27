@@ -1,0 +1,15 @@
+C:\Users\major\OneDrive\Dokument\CPGIT\CpStuff\Programmering\Programmering_ADV\LINQ\LinqThing2\LinqThing2\bin\Debug\net8.0\LinqThing2.exe
+C:\Users\major\OneDrive\Dokument\CPGIT\CpStuff\Programmering\Programmering_ADV\LINQ\LinqThing2\LinqThing2\bin\Debug\net8.0\LinqThing2.deps.json
+C:\Users\major\OneDrive\Dokument\CPGIT\CpStuff\Programmering\Programmering_ADV\LINQ\LinqThing2\LinqThing2\bin\Debug\net8.0\LinqThing2.runtimeconfig.json
+C:\Users\major\OneDrive\Dokument\CPGIT\CpStuff\Programmering\Programmering_ADV\LINQ\LinqThing2\LinqThing2\bin\Debug\net8.0\LinqThing2.dll
+C:\Users\major\OneDrive\Dokument\CPGIT\CpStuff\Programmering\Programmering_ADV\LINQ\LinqThing2\LinqThing2\bin\Debug\net8.0\LinqThing2.pdb
+C:\Users\major\OneDrive\Dokument\CPGIT\CpStuff\Programmering\Programmering_ADV\LINQ\LinqThing2\LinqThing2\obj\Debug\net8.0\LinqThing2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\major\OneDrive\Dokument\CPGIT\CpStuff\Programmering\Programmering_ADV\LINQ\LinqThing2\LinqThing2\obj\Debug\net8.0\LinqThing2.AssemblyInfoInputs.cache
+C:\Users\major\OneDrive\Dokument\CPGIT\CpStuff\Programmering\Programmering_ADV\LINQ\LinqThing2\LinqThing2\obj\Debug\net8.0\LinqThing2.AssemblyInfo.cs
+C:\Users\major\OneDrive\Dokument\CPGIT\CpStuff\Programmering\Programmering_ADV\LINQ\LinqThing2\LinqThing2\obj\Debug\net8.0\LinqThing2.csproj.CoreCompileInputs.cache
+C:\Users\major\OneDrive\Dokument\CPGIT\CpStuff\Programmering\Programmering_ADV\LINQ\LinqThing2\LinqThing2\obj\Debug\net8.0\LinqThing2.sourcelink.json
+C:\Users\major\OneDrive\Dokument\CPGIT\CpStuff\Programmering\Programmering_ADV\LINQ\LinqThing2\LinqThing2\obj\Debug\net8.0\LinqThing2.dll
+C:\Users\major\OneDrive\Dokument\CPGIT\CpStuff\Programmering\Programmering_ADV\LINQ\LinqThing2\LinqThing2\obj\Debug\net8.0\refint\LinqThing2.dll
+C:\Users\major\OneDrive\Dokument\CPGIT\CpStuff\Programmering\Programmering_ADV\LINQ\LinqThing2\LinqThing2\obj\Debug\net8.0\LinqThing2.pdb
+C:\Users\major\OneDrive\Dokument\CPGIT\CpStuff\Programmering\Programmering_ADV\LINQ\LinqThing2\LinqThing2\obj\Debug\net8.0\LinqThing2.genruntimeconfig.cache
+C:\Users\major\OneDrive\Dokument\CPGIT\CpStuff\Programmering\Programmering_ADV\LINQ\LinqThing2\LinqThing2\obj\Debug\net8.0\ref\LinqThing2.dll

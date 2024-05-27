@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Max_Sub_Array/1.0.0": {
+        "runtime": {
+          "Max_Sub_Array.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Max_Sub_Array/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

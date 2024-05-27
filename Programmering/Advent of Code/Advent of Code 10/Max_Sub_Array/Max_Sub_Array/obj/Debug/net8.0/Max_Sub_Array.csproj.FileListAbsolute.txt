@@ -1,0 +1,15 @@
+C:\Users\major\OneDrive\Dokument\CPGIT\CpStuff\Programmering\Advent of Code\Advent of Code 10\Max_Sub_Array\Max_Sub_Array\bin\Debug\net8.0\Max_Sub_Array.exe
+C:\Users\major\OneDrive\Dokument\CPGIT\CpStuff\Programmering\Advent of Code\Advent of Code 10\Max_Sub_Array\Max_Sub_Array\bin\Debug\net8.0\Max_Sub_Array.deps.json
+C:\Users\major\OneDrive\Dokument\CPGIT\CpStuff\Programmering\Advent of Code\Advent of Code 10\Max_Sub_Array\Max_Sub_Array\bin\Debug\net8.0\Max_Sub_Array.runtimeconfig.json
+C:\Users\major\OneDrive\Dokument\CPGIT\CpStuff\Programmering\Advent of Code\Advent of Code 10\Max_Sub_Array\Max_Sub_Array\bin\Debug\net8.0\Max_Sub_Array.dll
+C:\Users\major\OneDrive\Dokument\CPGIT\CpStuff\Programmering\Advent of Code\Advent of Code 10\Max_Sub_Array\Max_Sub_Array\bin\Debug\net8.0\Max_Sub_Array.pdb
+C:\Users\major\OneDrive\Dokument\CPGIT\CpStuff\Programmering\Advent of Code\Advent of Code 10\Max_Sub_Array\Max_Sub_Array\obj\Debug\net8.0\Max_Sub_Array.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\major\OneDrive\Dokument\CPGIT\CpStuff\Programmering\Advent of Code\Advent of Code 10\Max_Sub_Array\Max_Sub_Array\obj\Debug\net8.0\Max_Sub_Array.AssemblyInfoInputs.cache
+C:\Users\major\OneDrive\Dokument\CPGIT\CpStuff\Programmering\Advent of Code\Advent of Code 10\Max_Sub_Array\Max_Sub_Array\obj\Debug\net8.0\Max_Sub_Array.AssemblyInfo.cs
+C:\Users\major\OneDrive\Dokument\CPGIT\CpStuff\Programmering\Advent of Code\Advent of Code 10\Max_Sub_Array\Max_Sub_Array\obj\Debug\net8.0\Max_Sub_Array.csproj.CoreCompileInputs.cache
+C:\Users\major\OneDrive\Dokument\CPGIT\CpStuff\Programmering\Advent of Code\Advent of Code 10\Max_Sub_Array\Max_Sub_Array\obj\Debug\net8.0\Max_Sub_Array.sourcelink.json
+C:\Users\major\OneDrive\Dokument\CPGIT\CpStuff\Programmering\Advent of Code\Advent of Code 10\Max_Sub_Array\Max_Sub_Array\obj\Debug\net8.0\Max_Sub_Array.dll
+C:\Users\major\OneDrive\Dokument\CPGIT\CpStuff\Programmering\Advent of Code\Advent of Code 10\Max_Sub_Array\Max_Sub_Array\obj\Debug\net8.0\refint\Max_Sub_Array.dll
+C:\Users\major\OneDrive\Dokument\CPGIT\CpStuff\Programmering\Advent of Code\Advent of Code 10\Max_Sub_Array\Max_Sub_Array\obj\Debug\net8.0\Max_Sub_Array.pdb
+C:\Users\major\OneDrive\Dokument\CPGIT\CpStuff\Programmering\Advent of Code\Advent of Code 10\Max_Sub_Array\Max_Sub_Array\obj\Debug\net8.0\Max_Sub_Array.genruntimeconfig.cache
+C:\Users\major\OneDrive\Dokument\CPGIT\CpStuff\Programmering\Advent of Code\Advent of Code 10\Max_Sub_Array\Max_Sub_Array\obj\Debug\net8.0\ref\Max_Sub_Array.dll
