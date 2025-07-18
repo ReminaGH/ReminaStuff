@@ -1,4 +1,4 @@
-# CpStuff
+# Remina's Stuff
 
 This is my personal repositry.
 
